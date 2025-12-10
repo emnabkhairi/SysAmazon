@@ -1,0 +1,38 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Web page Test</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Choose</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">User</label>
+            <select class="form-control" name="user_id" required>
+                <option disabled selected>Select User ID</option>
+                {% for u in users %}
+                    <option value="{{u}}">{{u}}</option>
+                {% endfor %}
+            </select>
+
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Product</label>
+            <select class="form-control" name="product_id" required>
+                <option disabled selected>Select Product ID</option>
+                {% for p in products %}
+                    <option value="{{p}}">{{p}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Give recommendation" required />
+        </div>
+    </form>
+    <h2>
+       The  prediction is {{results}}
+    </h2>
+   <body>
+</html>
